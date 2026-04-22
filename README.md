@@ -52,6 +52,22 @@ mzm_forward_model/
 1. python --version #验证python的版本
 2. 验证pytorch的版本
 3. 验证所需要的包
+<img width="864" height="290" alt="d186982d00c2b9cc65bf92508be351ad" src="https://github.com/user-attachments/assets/78fd2a07-3040-444f-ba1f-08607b8241e0" />
+
+## 任务的核心实施阶段
+### 创建项目目录结构
+
+### 编写data/prepare_data.py脚本
+这个文件的目的是为了对raw里面的初始数据进行数据预处理，并且将处理之后的结果文件放入data/processed文件夹里面  
+这些结果文件包括：
+
+
+
+
+### 运行脚本生成处理后的数据
+
+### 定义模型与训练脚本
+
 
 
 
