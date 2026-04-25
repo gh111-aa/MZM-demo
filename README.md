@@ -2,7 +2,7 @@
 ***
 这是一个初学者对神经网络和逆向设计流程的体验
 ***
-## 项目架构
+## MLP项目架构
 ```plaintext
 mzm_forward_model/
  │
@@ -46,7 +46,7 @@ mzm_forward_model/
  └── .gitignore
 ```
 
-## 首先我们搭建环境和依赖包
+## MLP首先我们搭建环境和依赖包
 
 这里搭建了pytorch并且验证了所需要的依赖：
 1. python --version #验证python的版本
@@ -54,7 +54,7 @@ mzm_forward_model/
 3. 验证所需要的包
 <img width="864" height="290" alt="d186982d00c2b9cc65bf92508be351ad" src="https://github.com/user-attachments/assets/78fd2a07-3040-444f-ba1f-08607b8241e0" />
 
-## 任务的核心实施阶段
+## MLP任务的核心实施阶段
 ### 创建项目目录结构  
 ### 编写data/prepare_data.py脚本  
 这个文件的目的是为了对raw里面的初始数据进行数据预处理，并且将处理之后的结果文件放入data/processed文件夹里面  
@@ -108,13 +108,28 @@ mzm_forward_model/
 所以可以采取更大的学习率。  
 以往是大步伐少步走，加了`batchnorm`之后是小步伐多次走，更容易接近最优权重。
 ***
-
+在构建MLP的时候，用了类函数的语法，继承了pytorch里面的基类
+***
+> 类方法`class`：
+首先使用`class name(父类):`定义类
+其次定义类属性、实例属性，实例属性可以有公有、私密、保护属性，保护属性会直接把你的类属性名称换成`_classname__类name`，所以直接查询是查不到的。
+然后定义里面的类函数function，创建实例之后可以直接调用实例属性和类函数。
+例子：
+定义实例：实例name=类name（参数）
+实例name.函数（参数）
+***
 ### 撰写配置文件config.yaml  
 yaml文件的好处就是可以直接将框架中的超参数写道另一个文件中直接调用，简单明了，把超参数从原本python文件中抽离出来，减少修改错误。
 
+### 撰写训练文件train.py（在该文件里面物理约束也被嵌入，所以physics_loss.py文件为空）  
 
+### 撰写scipts.py文件（脚本文件，通常是对已经训练好的网络进行处理的文件）
+#### 评估文件evalute.py文件
+用于评估神经网络效果的文件，其中用到了已经训练好的神经网络框架和test.npy文件
+#### inference.py文件
+用于打包和封装已经训练好的网络，生成api接口。
 
-
+## 逆向优化算法设计架构
 
 
 
